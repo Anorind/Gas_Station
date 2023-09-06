@@ -1,3 +1,6 @@
+using System.ComponentModel;
+using System.Globalization;
+
 namespace Gas_Station
 {
     public partial class BestOilForm : Form
@@ -6,6 +9,7 @@ namespace Gas_Station
         {
 
             InitializeComponent();
+            timer1.Start();
         }
         bool clearForm = false;
         decimal price = 0;
@@ -37,7 +41,7 @@ namespace Gas_Station
             {
                 price = quantity;//Ми можемо змінити ціну на пальне
             }
-            else if(clearForm == true)
+            else if (clearForm == true)
             {
                 MessageBox.Show("Невірний формат ціни", "Помилка", MessageBoxButtons.OK);
             }
@@ -248,6 +252,59 @@ namespace Gas_Station
             labelTotalPriceCafe.Text = "0,00";
             labelTotalPriceBestOil.Text = "0,00";
             return clearForm = false;
+        }
+        private void englishMenuItem_Click(object sender, EventArgs e)
+        {
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(BestOilForm));
+            CultureInfo culture = new CultureInfo("en-US");
+            ApplyResourcesToControl(this, resources, culture);
+        }
+        private void ukrainianMenuItem_Click(object sender, EventArgs e)
+        {
+            ComponentResourceManager resources = new ComponentResourceManager(typeof(BestOilForm));
+            CultureInfo culture = new CultureInfo("uk-UA");
+            ApplyResourcesToControl(this, resources, culture);
+        }
+
+
+        private void timer1_Tick_1(object sender, EventArgs e)
+        {
+            if (statusLabel.Text == DateTime.Now.ToString("HH: mm:ss"))
+            {
+                statusLabel.Text = DateTime.Now.ToString("dd.MM.yyyy");
+            }
+            else
+            {
+                statusLabel.Text = DateTime.Now.ToString("HH: mm:ss");
+            }
+            toolStripTextBox1.Text = DateTime.Now.ToString("dddd");
+        }
+
+        private void restoreMenuItem_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Normal;
+            this.ShowInTaskbar = true;
+        }
+        private void ApplyResourcesToControl(Control control, ComponentResourceManager resources, CultureInfo culture)
+        {
+            resources.ApplyResources(control, control.Name, culture);
+            foreach (Control childControl in control.Controls)
+            {
+                ApplyResourcesToControl(childControl, resources, culture);
+            }
+        }
+        private void exitMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+        protected override void OnResize(EventArgs e)
+        {
+            base.OnResize(e);
+
+            if (this.WindowState == FormWindowState.Minimized)
+            {
+                this.ShowInTaskbar = false;
+            }
         }
     }
 }

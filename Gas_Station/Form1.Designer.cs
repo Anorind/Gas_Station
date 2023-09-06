@@ -78,16 +78,31 @@
             labelMoneyTotalPriceBestOil = new Label();
             labelTotalPriceBestOil = new Label();
             timer = new System.Windows.Forms.Timer(components);
+            statusStrip = new StatusStrip();
+            statusLabel = new ToolStripStatusLabel();
+            toolStripDropDownButton = new ToolStripDropDownButton();
+            englishMenuItem = new ToolStripMenuItem();
+            ukrainianMenuItem = new ToolStripMenuItem();
+            toolStripDropDownButton1 = new ToolStripDropDownButton();
+            toolStripTextBox1 = new ToolStripTextBox();
+            timer1 = new System.Windows.Forms.Timer(components);
+            contextMenu = new ContextMenuStrip(components);
+            restoreMenuItem = new ToolStripMenuItem();
+            exitMenuItem = new ToolStripMenuItem();
+            notifyIcon = new NotifyIcon(components);
             groupBoxGasStation.SuspendLayout();
             groupBoxTotalPrice.SuspendLayout();
             groupBoxClientChoiseConsider.SuspendLayout();
             groupBoxCaffe.SuspendLayout();
             groupBoxTotalPriceCafe.SuspendLayout();
             groupBoxTotalPriceBestOil.SuspendLayout();
+            statusStrip.SuspendLayout();
+            contextMenu.SuspendLayout();
             SuspendLayout();
             // 
             // groupBoxGasStation
             // 
+            resources.ApplyResources(groupBoxGasStation, "groupBoxGasStation");
             groupBoxGasStation.BackColor = SystemColors.Info;
             groupBoxGasStation.Controls.Add(groupBoxTotalPrice);
             groupBoxGasStation.Controls.Add(labelQuantity);
@@ -102,174 +117,116 @@
             groupBoxGasStation.Controls.Add(comboBoxGas);
             groupBoxGasStation.FlatStyle = FlatStyle.Popup;
             groupBoxGasStation.ForeColor = SystemColors.Highlight;
-            groupBoxGasStation.Location = new Point(48, 28);
             groupBoxGasStation.Name = "groupBoxGasStation";
-            groupBoxGasStation.Size = new Size(290, 440);
-            groupBoxGasStation.TabIndex = 0;
             groupBoxGasStation.TabStop = false;
-            groupBoxGasStation.Text = "Автозаправка";
             // 
             // groupBoxTotalPrice
             // 
+            resources.ApplyResources(groupBoxTotalPrice, "groupBoxTotalPrice");
             groupBoxTotalPrice.Controls.Add(labelTotalPriceMoneyGasStation);
             groupBoxTotalPrice.Controls.Add(labelTotalPrice);
             groupBoxTotalPrice.ForeColor = SystemColors.Highlight;
-            groupBoxTotalPrice.Location = new Point(19, 308);
             groupBoxTotalPrice.Name = "groupBoxTotalPrice";
-            groupBoxTotalPrice.Size = new Size(265, 108);
-            groupBoxTotalPrice.TabIndex = 10;
             groupBoxTotalPrice.TabStop = false;
-            groupBoxTotalPrice.Text = "До сплати";
             // 
             // labelTotalPriceMoneyGasStation
             // 
-            labelTotalPriceMoneyGasStation.AutoSize = true;
-            labelTotalPriceMoneyGasStation.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(labelTotalPriceMoneyGasStation, "labelTotalPriceMoneyGasStation");
             labelTotalPriceMoneyGasStation.ForeColor = SystemColors.ControlText;
-            labelTotalPriceMoneyGasStation.Location = new Point(171, 40);
             labelTotalPriceMoneyGasStation.Name = "labelTotalPriceMoneyGasStation";
-            labelTotalPriceMoneyGasStation.Size = new Size(76, 48);
-            labelTotalPriceMoneyGasStation.TabIndex = 9;
-            labelTotalPriceMoneyGasStation.Text = "грн";
             // 
             // labelTotalPrice
             // 
-            labelTotalPrice.AutoSize = true;
-            labelTotalPrice.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(labelTotalPrice, "labelTotalPrice");
             labelTotalPrice.ForeColor = SystemColors.ControlText;
-            labelTotalPrice.Location = new Point(49, 27);
             labelTotalPrice.Name = "labelTotalPrice";
-            labelTotalPrice.Size = new Size(116, 65);
-            labelTotalPrice.TabIndex = 0;
-            labelTotalPrice.Text = "0,00";
             // 
             // labelQuantity
             // 
-            labelQuantity.AutoSize = true;
+            resources.ApplyResources(labelQuantity, "labelQuantity");
             labelQuantity.ForeColor = SystemColors.ControlText;
-            labelQuantity.Location = new Point(225, 188);
             labelQuantity.Name = "labelQuantity";
-            labelQuantity.Size = new Size(21, 25);
-            labelQuantity.TabIndex = 9;
-            labelQuantity.Text = "л";
             // 
             // labelSum
             // 
-            labelSum.AutoSize = true;
+            resources.ApplyResources(labelSum, "labelSum");
             labelSum.ForeColor = SystemColors.ControlText;
-            labelSum.Location = new Point(225, 240);
             labelSum.Name = "labelSum";
-            labelSum.Size = new Size(40, 25);
-            labelSum.TabIndex = 8;
-            labelSum.Text = "грн";
             // 
             // textBoxSum
             // 
-            textBoxSum.Location = new Point(145, 234);
+            resources.ApplyResources(textBoxSum, "textBoxSum");
             textBoxSum.Name = "textBoxSum";
-            textBoxSum.Size = new Size(74, 31);
-            textBoxSum.TabIndex = 7;
-            textBoxSum.Text = "0,00";
             textBoxSum.KeyDown += textBoxSum_KeyDown;
             // 
             // textBoxQuantity
             // 
-            textBoxQuantity.Location = new Point(145, 182);
+            resources.ApplyResources(textBoxQuantity, "textBoxQuantity");
             textBoxQuantity.Name = "textBoxQuantity";
-            textBoxQuantity.Size = new Size(74, 31);
-            textBoxQuantity.TabIndex = 6;
-            textBoxQuantity.Text = "0,00";
             textBoxQuantity.KeyDown += textBoxQuantity_KeyDown;
             // 
             // groupBoxClientChoiseConsider
             // 
+            resources.ApplyResources(groupBoxClientChoiseConsider, "groupBoxClientChoiseConsider");
             groupBoxClientChoiseConsider.Controls.Add(radioButtonSum);
             groupBoxClientChoiseConsider.Controls.Add(radioButtonQuantity);
             groupBoxClientChoiseConsider.ForeColor = SystemColors.ControlText;
-            groupBoxClientChoiseConsider.Location = new Point(18, 169);
             groupBoxClientChoiseConsider.Name = "groupBoxClientChoiseConsider";
-            groupBoxClientChoiseConsider.Size = new Size(118, 114);
-            groupBoxClientChoiseConsider.TabIndex = 5;
             groupBoxClientChoiseConsider.TabStop = false;
             // 
             // radioButtonSum
             // 
-            radioButtonSum.AutoSize = true;
-            radioButtonSum.Location = new Point(6, 67);
+            resources.ApplyResources(radioButtonSum, "radioButtonSum");
             radioButtonSum.Name = "radioButtonSum";
-            radioButtonSum.Size = new Size(79, 29);
-            radioButtonSum.TabIndex = 1;
             radioButtonSum.TabStop = true;
-            radioButtonSum.Text = "Сума";
             radioButtonSum.UseVisualStyleBackColor = true;
             radioButtonSum.CheckedChanged += radioButtonSum_CheckedChanged;
             // 
             // radioButtonQuantity
             // 
-            radioButtonQuantity.AutoSize = true;
-            radioButtonQuantity.Location = new Point(6, 15);
+            resources.ApplyResources(radioButtonQuantity, "radioButtonQuantity");
             radioButtonQuantity.Name = "radioButtonQuantity";
-            radioButtonQuantity.Size = new Size(106, 29);
-            radioButtonQuantity.TabIndex = 0;
             radioButtonQuantity.TabStop = true;
-            radioButtonQuantity.Text = "Кількість";
             radioButtonQuantity.UseVisualStyleBackColor = true;
             radioButtonQuantity.CheckedChanged += radioButtonQuantity_CheckedChanged;
             // 
             // labelPriceMoneyExchange
             // 
-            labelPriceMoneyExchange.AutoSize = true;
+            resources.ApplyResources(labelPriceMoneyExchange, "labelPriceMoneyExchange");
             labelPriceMoneyExchange.ForeColor = SystemColors.ControlText;
-            labelPriceMoneyExchange.Location = new Point(225, 108);
             labelPriceMoneyExchange.Name = "labelPriceMoneyExchange";
-            labelPriceMoneyExchange.Size = new Size(40, 25);
-            labelPriceMoneyExchange.TabIndex = 4;
-            labelPriceMoneyExchange.Text = "грн";
             // 
             // textBoxPriceGas
             // 
-            textBoxPriceGas.Location = new Point(105, 102);
+            resources.ApplyResources(textBoxPriceGas, "textBoxPriceGas");
             textBoxPriceGas.Name = "textBoxPriceGas";
-            textBoxPriceGas.Size = new Size(111, 31);
-            textBoxPriceGas.TabIndex = 3;
             textBoxPriceGas.TextChanged += textBoxPriceGas_TextChanged;
             // 
             // labelPriceGas
             // 
-            labelPriceGas.AutoSize = true;
+            resources.ApplyResources(labelPriceGas, "labelPriceGas");
             labelPriceGas.ForeColor = SystemColors.ControlText;
-            labelPriceGas.Location = new Point(6, 108);
             labelPriceGas.Name = "labelPriceGas";
-            labelPriceGas.Size = new Size(48, 25);
-            labelPriceGas.TabIndex = 2;
-            labelPriceGas.Text = "Ціна";
             // 
             // labelGas
             // 
-            labelGas.AutoSize = true;
+            resources.ApplyResources(labelGas, "labelGas");
             labelGas.ForeColor = SystemColors.ControlText;
-            labelGas.Location = new Point(6, 38);
             labelGas.Name = "labelGas";
-            labelGas.Size = new Size(69, 25);
-            labelGas.TabIndex = 1;
-            labelGas.Text = "Бензин";
             // 
             // comboBoxGas
             // 
+            resources.ApplyResources(comboBoxGas, "comboBoxGas");
             comboBoxGas.DropDownHeight = 110;
             comboBoxGas.DropDownWidth = 130;
-            comboBoxGas.FlatStyle = FlatStyle.Flat;
             comboBoxGas.FormattingEnabled = true;
-            comboBoxGas.IntegralHeight = false;
-            comboBoxGas.Items.AddRange(new object[] { "92", "95", "ДТ" });
-            comboBoxGas.Location = new Point(105, 35);
+            comboBoxGas.Items.AddRange(new object[] { resources.GetString("comboBoxGas.Items"), resources.GetString("comboBoxGas.Items1"), resources.GetString("comboBoxGas.Items2") });
             comboBoxGas.Name = "comboBoxGas";
-            comboBoxGas.Size = new Size(158, 33);
-            comboBoxGas.TabIndex = 0;
             comboBoxGas.SelectedIndexChanged += comboBoxGas_SelectedIndexChanged;
             // 
             // groupBoxCaffe
             // 
+            resources.ApplyResources(groupBoxCaffe, "groupBoxCaffe");
             groupBoxCaffe.BackColor = SystemColors.Info;
             groupBoxCaffe.Controls.Add(labelQuantityCocaCola);
             groupBoxCaffe.Controls.Add(labelCostCocaCola);
@@ -296,340 +253,289 @@
             groupBoxCaffe.Controls.Add(labelCostCafeProducts);
             groupBoxCaffe.FlatStyle = FlatStyle.Popup;
             groupBoxCaffe.ForeColor = SystemColors.Highlight;
-            groupBoxCaffe.Location = new Point(364, 28);
             groupBoxCaffe.Name = "groupBoxCaffe";
-            groupBoxCaffe.Size = new Size(398, 440);
-            groupBoxCaffe.TabIndex = 1;
             groupBoxCaffe.TabStop = false;
-            groupBoxCaffe.Text = "Міні-кафе";
             // 
             // labelQuantityCocaCola
             // 
-            labelQuantityCocaCola.AutoSize = true;
+            resources.ApplyResources(labelQuantityCocaCola, "labelQuantityCocaCola");
             labelQuantityCocaCola.ForeColor = SystemColors.ControlText;
-            labelQuantityCocaCola.Location = new Point(352, 236);
             labelQuantityCocaCola.Name = "labelQuantityCocaCola";
-            labelQuantityCocaCola.Size = new Size(33, 25);
-            labelQuantityCocaCola.TabIndex = 30;
-            labelQuantityCocaCola.Text = "шт";
             // 
             // labelCostCocaCola
             // 
-            labelCostCocaCola.AutoSize = true;
+            resources.ApplyResources(labelCostCocaCola, "labelCostCocaCola");
             labelCostCocaCola.ForeColor = SystemColors.ControlText;
-            labelCostCocaCola.Location = new Point(232, 236);
             labelCostCocaCola.Name = "labelCostCocaCola";
-            labelCostCocaCola.Size = new Size(40, 25);
-            labelCostCocaCola.TabIndex = 29;
-            labelCostCocaCola.Text = "грн";
             // 
             // textBoxQuantityCocaCola
             // 
-            textBoxQuantityCocaCola.Enabled = false;
-            textBoxQuantityCocaCola.Location = new Point(276, 230);
+            resources.ApplyResources(textBoxQuantityCocaCola, "textBoxQuantityCocaCola");
             textBoxQuantityCocaCola.Name = "textBoxQuantityCocaCola";
-            textBoxQuantityCocaCola.Size = new Size(70, 31);
-            textBoxQuantityCocaCola.TabIndex = 28;
             textBoxQuantityCocaCola.KeyDown += textBoxQuantityCocaCola_KeyDown;
             // 
             // textBoxCostCocaCola
             // 
-            textBoxCostCocaCola.Enabled = false;
-            textBoxCostCocaCola.Location = new Point(158, 230);
+            resources.ApplyResources(textBoxCostCocaCola, "textBoxCostCocaCola");
             textBoxCostCocaCola.Name = "textBoxCostCocaCola";
-            textBoxCostCocaCola.Size = new Size(68, 31);
-            textBoxCostCocaCola.TabIndex = 27;
-            textBoxCostCocaCola.Text = "10";
             // 
             // labelQuantityFrenchFrie
             // 
-            labelQuantityFrenchFrie.AutoSize = true;
+            resources.ApplyResources(labelQuantityFrenchFrie, "labelQuantityFrenchFrie");
             labelQuantityFrenchFrie.ForeColor = SystemColors.ControlText;
-            labelQuantityFrenchFrie.Location = new Point(352, 189);
             labelQuantityFrenchFrie.Name = "labelQuantityFrenchFrie";
-            labelQuantityFrenchFrie.Size = new Size(33, 25);
-            labelQuantityFrenchFrie.TabIndex = 26;
-            labelQuantityFrenchFrie.Text = "шт";
             // 
             // labelCostFrenchFrie
             // 
-            labelCostFrenchFrie.AutoSize = true;
+            resources.ApplyResources(labelCostFrenchFrie, "labelCostFrenchFrie");
             labelCostFrenchFrie.ForeColor = SystemColors.ControlText;
-            labelCostFrenchFrie.Location = new Point(232, 189);
             labelCostFrenchFrie.Name = "labelCostFrenchFrie";
-            labelCostFrenchFrie.Size = new Size(40, 25);
-            labelCostFrenchFrie.TabIndex = 25;
-            labelCostFrenchFrie.Text = "грн";
             // 
             // textBoxQuantityFrenchFrie
             // 
-            textBoxQuantityFrenchFrie.Enabled = false;
-            textBoxQuantityFrenchFrie.Location = new Point(276, 182);
+            resources.ApplyResources(textBoxQuantityFrenchFrie, "textBoxQuantityFrenchFrie");
             textBoxQuantityFrenchFrie.Name = "textBoxQuantityFrenchFrie";
-            textBoxQuantityFrenchFrie.Size = new Size(70, 31);
-            textBoxQuantityFrenchFrie.TabIndex = 24;
             textBoxQuantityFrenchFrie.KeyDown += textBoxQuantityFrenchFrie_KeyDown;
             // 
             // textBoxCostFrenchFrie
             // 
-            textBoxCostFrenchFrie.Enabled = false;
-            textBoxCostFrenchFrie.Location = new Point(158, 183);
+            resources.ApplyResources(textBoxCostFrenchFrie, "textBoxCostFrenchFrie");
             textBoxCostFrenchFrie.Name = "textBoxCostFrenchFrie";
-            textBoxCostFrenchFrie.Size = new Size(68, 31);
-            textBoxCostFrenchFrie.TabIndex = 23;
-            textBoxCostFrenchFrie.Text = "30";
             // 
             // labelQantityHamburher
             // 
-            labelQantityHamburher.AutoSize = true;
+            resources.ApplyResources(labelQantityHamburher, "labelQantityHamburher");
             labelQantityHamburher.ForeColor = SystemColors.ControlText;
-            labelQantityHamburher.Location = new Point(352, 144);
             labelQantityHamburher.Name = "labelQantityHamburher";
-            labelQantityHamburher.Size = new Size(33, 25);
-            labelQantityHamburher.TabIndex = 22;
-            labelQantityHamburher.Text = "шт";
             // 
             // labelCostHamburher
             // 
-            labelCostHamburher.AutoSize = true;
+            resources.ApplyResources(labelCostHamburher, "labelCostHamburher");
             labelCostHamburher.ForeColor = SystemColors.ControlText;
-            labelCostHamburher.Location = new Point(232, 144);
             labelCostHamburher.Name = "labelCostHamburher";
-            labelCostHamburher.Size = new Size(40, 25);
-            labelCostHamburher.TabIndex = 21;
-            labelCostHamburher.Text = "грн";
             // 
             // textBoxQuantityHamburher
             // 
-            textBoxQuantityHamburher.Enabled = false;
-            textBoxQuantityHamburher.Location = new Point(276, 138);
+            resources.ApplyResources(textBoxQuantityHamburher, "textBoxQuantityHamburher");
             textBoxQuantityHamburher.Name = "textBoxQuantityHamburher";
-            textBoxQuantityHamburher.Size = new Size(70, 31);
-            textBoxQuantityHamburher.TabIndex = 20;
             textBoxQuantityHamburher.KeyDown += textBoxQuantityHamburher_KeyDown;
             // 
             // textBoxCostHamburher
             // 
-            textBoxCostHamburher.Enabled = false;
-            textBoxCostHamburher.Location = new Point(158, 138);
+            resources.ApplyResources(textBoxCostHamburher, "textBoxCostHamburher");
             textBoxCostHamburher.Name = "textBoxCostHamburher";
-            textBoxCostHamburher.Size = new Size(68, 31);
-            textBoxCostHamburher.TabIndex = 19;
-            textBoxCostHamburher.Text = "50";
             // 
             // labelQuantityHotDog
             // 
-            labelQuantityHotDog.AutoSize = true;
+            resources.ApplyResources(labelQuantityHotDog, "labelQuantityHotDog");
             labelQuantityHotDog.ForeColor = SystemColors.ControlText;
-            labelQuantityHotDog.Location = new Point(352, 95);
             labelQuantityHotDog.Name = "labelQuantityHotDog";
-            labelQuantityHotDog.Size = new Size(33, 25);
-            labelQuantityHotDog.TabIndex = 18;
-            labelQuantityHotDog.Text = "шт";
             // 
             // labelCostHotDog
             // 
-            labelCostHotDog.AutoSize = true;
+            resources.ApplyResources(labelCostHotDog, "labelCostHotDog");
             labelCostHotDog.ForeColor = SystemColors.ControlText;
-            labelCostHotDog.Location = new Point(232, 95);
             labelCostHotDog.Name = "labelCostHotDog";
-            labelCostHotDog.Size = new Size(40, 25);
-            labelCostHotDog.TabIndex = 17;
-            labelCostHotDog.Text = "грн";
             // 
             // textBoxQuantityHotDog
             // 
-            textBoxQuantityHotDog.Enabled = false;
-            textBoxQuantityHotDog.Location = new Point(276, 89);
+            resources.ApplyResources(textBoxQuantityHotDog, "textBoxQuantityHotDog");
             textBoxQuantityHotDog.Name = "textBoxQuantityHotDog";
-            textBoxQuantityHotDog.Size = new Size(70, 31);
-            textBoxQuantityHotDog.TabIndex = 16;
             textBoxQuantityHotDog.KeyDown += textBoxQuantityHotDog_KeyDown;
             // 
             // textBoxHotDogCost
             // 
-            textBoxHotDogCost.Enabled = false;
-            textBoxHotDogCost.Location = new Point(158, 89);
+            resources.ApplyResources(textBoxHotDogCost, "textBoxHotDogCost");
             textBoxHotDogCost.Name = "textBoxHotDogCost";
-            textBoxHotDogCost.Size = new Size(68, 31);
-            textBoxHotDogCost.TabIndex = 15;
-            textBoxHotDogCost.Text = "30";
             // 
             // checkBoxCocaCola
             // 
-            checkBoxCocaCola.AutoSize = true;
+            resources.ApplyResources(checkBoxCocaCola, "checkBoxCocaCola");
             checkBoxCocaCola.ForeColor = SystemColors.ControlText;
-            checkBoxCocaCola.Location = new Point(6, 234);
             checkBoxCocaCola.Name = "checkBoxCocaCola";
-            checkBoxCocaCola.Size = new Size(123, 29);
-            checkBoxCocaCola.TabIndex = 14;
-            checkBoxCocaCola.Text = "Кока-Кола";
             checkBoxCocaCola.UseVisualStyleBackColor = true;
             checkBoxCocaCola.CheckedChanged += checkBoxCocaCola_CheckedChanged;
             // 
             // checkBoxFrenchFrie
             // 
-            checkBoxFrenchFrie.AutoSize = true;
+            resources.ApplyResources(checkBoxFrenchFrie, "checkBoxFrenchFrie");
             checkBoxFrenchFrie.ForeColor = SystemColors.ControlText;
-            checkBoxFrenchFrie.Location = new Point(6, 187);
             checkBoxFrenchFrie.Name = "checkBoxFrenchFrie";
-            checkBoxFrenchFrie.Size = new Size(146, 29);
-            checkBoxFrenchFrie.TabIndex = 13;
-            checkBoxFrenchFrie.Text = "Картопля фрі";
             checkBoxFrenchFrie.UseVisualStyleBackColor = true;
             checkBoxFrenchFrie.CheckedChanged += checkBoxFrenchFrie_CheckedChanged;
             // 
             // checkBoxHamburher
             // 
-            checkBoxHamburher.AutoSize = true;
+            resources.ApplyResources(checkBoxHamburher, "checkBoxHamburher");
             checkBoxHamburher.ForeColor = SystemColors.ControlText;
-            checkBoxHamburher.Location = new Point(6, 140);
             checkBoxHamburher.Name = "checkBoxHamburher";
-            checkBoxHamburher.Size = new Size(125, 29);
-            checkBoxHamburher.TabIndex = 12;
-            checkBoxHamburher.Text = "Гамбургер";
             checkBoxHamburher.UseVisualStyleBackColor = true;
             checkBoxHamburher.CheckedChanged += checkBoxHamburher_CheckedChanged;
             // 
             // checkBoxHotDog
             // 
-            checkBoxHotDog.AutoSize = true;
+            resources.ApplyResources(checkBoxHotDog, "checkBoxHotDog");
             checkBoxHotDog.ForeColor = SystemColors.ControlText;
-            checkBoxHotDog.Location = new Point(6, 91);
             checkBoxHotDog.Name = "checkBoxHotDog";
-            checkBoxHotDog.Size = new Size(104, 29);
-            checkBoxHotDog.TabIndex = 11;
-            checkBoxHotDog.Text = "Хот-Дог";
             checkBoxHotDog.UseVisualStyleBackColor = true;
             checkBoxHotDog.CheckedChanged += checkBoxHotDog_CheckedChanged;
             // 
             // groupBoxTotalPriceCafe
             // 
+            resources.ApplyResources(groupBoxTotalPriceCafe, "groupBoxTotalPriceCafe");
             groupBoxTotalPriceCafe.Controls.Add(labelMoneyTotalPriceCafe);
             groupBoxTotalPriceCafe.Controls.Add(labelTotalPriceCafe);
             groupBoxTotalPriceCafe.ForeColor = SystemColors.Highlight;
-            groupBoxTotalPriceCafe.Location = new Point(19, 308);
             groupBoxTotalPriceCafe.Name = "groupBoxTotalPriceCafe";
-            groupBoxTotalPriceCafe.Size = new Size(357, 108);
-            groupBoxTotalPriceCafe.TabIndex = 10;
             groupBoxTotalPriceCafe.TabStop = false;
-            groupBoxTotalPriceCafe.Text = "До сплати";
             // 
             // labelMoneyTotalPriceCafe
             // 
-            labelMoneyTotalPriceCafe.AutoSize = true;
-            labelMoneyTotalPriceCafe.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(labelMoneyTotalPriceCafe, "labelMoneyTotalPriceCafe");
             labelMoneyTotalPriceCafe.ForeColor = SystemColors.ControlText;
-            labelMoneyTotalPriceCafe.Location = new Point(171, 40);
             labelMoneyTotalPriceCafe.Name = "labelMoneyTotalPriceCafe";
-            labelMoneyTotalPriceCafe.Size = new Size(76, 48);
-            labelMoneyTotalPriceCafe.TabIndex = 9;
-            labelMoneyTotalPriceCafe.Text = "грн";
             // 
             // labelTotalPriceCafe
             // 
-            labelTotalPriceCafe.AutoSize = true;
-            labelTotalPriceCafe.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(labelTotalPriceCafe, "labelTotalPriceCafe");
             labelTotalPriceCafe.ForeColor = SystemColors.ControlText;
-            labelTotalPriceCafe.Location = new Point(49, 27);
             labelTotalPriceCafe.Name = "labelTotalPriceCafe";
-            labelTotalPriceCafe.Size = new Size(116, 65);
-            labelTotalPriceCafe.TabIndex = 0;
-            labelTotalPriceCafe.Text = "0,00";
             // 
             // labelQuantityCafeProducts
             // 
-            labelQuantityCafeProducts.AutoSize = true;
+            resources.ApplyResources(labelQuantityCafeProducts, "labelQuantityCafeProducts");
             labelQuantityCafeProducts.ForeColor = SystemColors.ControlText;
-            labelQuantityCafeProducts.Location = new Point(276, 43);
             labelQuantityCafeProducts.Name = "labelQuantityCafeProducts";
-            labelQuantityCafeProducts.Size = new Size(81, 25);
-            labelQuantityCafeProducts.TabIndex = 4;
-            labelQuantityCafeProducts.Text = "Кількість";
             // 
             // labelCostCafeProducts
             // 
-            labelCostCafeProducts.AutoSize = true;
+            resources.ApplyResources(labelCostCafeProducts, "labelCostCafeProducts");
             labelCostCafeProducts.ForeColor = SystemColors.ControlText;
-            labelCostCafeProducts.Location = new Point(168, 43);
             labelCostCafeProducts.Name = "labelCostCafeProducts";
-            labelCostCafeProducts.Size = new Size(48, 25);
-            labelCostCafeProducts.TabIndex = 1;
-            labelCostCafeProducts.Text = "Ціна";
             // 
             // groupBoxTotalPriceBestOil
             // 
+            resources.ApplyResources(groupBoxTotalPriceBestOil, "groupBoxTotalPriceBestOil");
             groupBoxTotalPriceBestOil.Controls.Add(labelGoodLuck);
             groupBoxTotalPriceBestOil.Controls.Add(buttonTotalPriceBestOil);
             groupBoxTotalPriceBestOil.Controls.Add(labelMoneyTotalPriceBestOil);
             groupBoxTotalPriceBestOil.Controls.Add(labelTotalPriceBestOil);
             groupBoxTotalPriceBestOil.ForeColor = SystemColors.Highlight;
-            groupBoxTotalPriceBestOil.Location = new Point(48, 493);
             groupBoxTotalPriceBestOil.Name = "groupBoxTotalPriceBestOil";
-            groupBoxTotalPriceBestOil.Size = new Size(714, 194);
-            groupBoxTotalPriceBestOil.TabIndex = 11;
             groupBoxTotalPriceBestOil.TabStop = false;
-            groupBoxTotalPriceBestOil.Text = "Всього до сплати";
             // 
             // labelGoodLuck
             // 
-            labelGoodLuck.Image = (Image)resources.GetObject("labelGoodLuck.Image");
-            labelGoodLuck.ImageAlign = ContentAlignment.MiddleRight;
-            labelGoodLuck.Location = new Point(36, 63);
-            labelGoodLuck.MaximumSize = new Size(85, 85);
+            resources.ApplyResources(labelGoodLuck, "labelGoodLuck");
             labelGoodLuck.Name = "labelGoodLuck";
-            labelGoodLuck.Size = new Size(85, 80);
-            labelGoodLuck.TabIndex = 11;
-            labelGoodLuck.TextAlign = ContentAlignment.TopCenter;
             // 
             // buttonTotalPriceBestOil
             // 
+            resources.ApplyResources(buttonTotalPriceBestOil, "buttonTotalPriceBestOil");
             buttonTotalPriceBestOil.BackColor = SystemColors.GradientActiveCaption;
-            buttonTotalPriceBestOil.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point);
             buttonTotalPriceBestOil.ForeColor = SystemColors.ControlText;
-            buttonTotalPriceBestOil.Location = new Point(134, 63);
             buttonTotalPriceBestOil.Name = "buttonTotalPriceBestOil";
-            buttonTotalPriceBestOil.Size = new Size(156, 86);
-            buttonTotalPriceBestOil.TabIndex = 10;
-            buttonTotalPriceBestOil.Text = "Прорахувати";
             buttonTotalPriceBestOil.UseVisualStyleBackColor = false;
             buttonTotalPriceBestOil.Click += buttonTotalPriceBestOil_Click;
             // 
             // labelMoneyTotalPriceBestOil
             // 
-            labelMoneyTotalPriceBestOil.AutoSize = true;
-            labelMoneyTotalPriceBestOil.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(labelMoneyTotalPriceBestOil, "labelMoneyTotalPriceBestOil");
             labelMoneyTotalPriceBestOil.ForeColor = SystemColors.ControlText;
-            labelMoneyTotalPriceBestOil.Location = new Point(538, 101);
             labelMoneyTotalPriceBestOil.Name = "labelMoneyTotalPriceBestOil";
-            labelMoneyTotalPriceBestOil.Size = new Size(76, 48);
-            labelMoneyTotalPriceBestOil.TabIndex = 9;
-            labelMoneyTotalPriceBestOil.Text = "грн";
             // 
             // labelTotalPriceBestOil
             // 
-            labelTotalPriceBestOil.AutoSize = true;
-            labelTotalPriceBestOil.Font = new Font("Segoe UI", 24F, FontStyle.Regular, GraphicsUnit.Point);
+            resources.ApplyResources(labelTotalPriceBestOil, "labelTotalPriceBestOil");
             labelTotalPriceBestOil.ForeColor = SystemColors.ControlText;
-            labelTotalPriceBestOil.Location = new Point(384, 84);
             labelTotalPriceBestOil.Name = "labelTotalPriceBestOil";
-            labelTotalPriceBestOil.Size = new Size(116, 65);
-            labelTotalPriceBestOil.TabIndex = 0;
-            labelTotalPriceBestOil.Text = "0,00";
+            // 
+            // statusStrip
+            // 
+            resources.ApplyResources(statusStrip, "statusStrip");
+            statusStrip.ImageScalingSize = new Size(24, 24);
+            statusStrip.Items.AddRange(new ToolStripItem[] { statusLabel, toolStripDropDownButton, toolStripDropDownButton1 });
+            statusStrip.Name = "statusStrip";
+            // 
+            // statusLabel
+            // 
+            resources.ApplyResources(statusLabel, "statusLabel");
+            statusLabel.Name = "statusLabel";
+            // 
+            // toolStripDropDownButton
+            // 
+            resources.ApplyResources(toolStripDropDownButton, "toolStripDropDownButton");
+            toolStripDropDownButton.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton.DropDownItems.AddRange(new ToolStripItem[] { englishMenuItem, ukrainianMenuItem });
+            toolStripDropDownButton.Name = "toolStripDropDownButton";
+            // 
+            // englishMenuItem
+            // 
+            resources.ApplyResources(englishMenuItem, "englishMenuItem");
+            englishMenuItem.CheckOnClick = true;
+            englishMenuItem.Name = "englishMenuItem";
+            englishMenuItem.Click += englishMenuItem_Click;
+            // 
+            // ukrainianMenuItem
+            // 
+            resources.ApplyResources(ukrainianMenuItem, "ukrainianMenuItem");
+            ukrainianMenuItem.CheckOnClick = true;
+            ukrainianMenuItem.Name = "ukrainianMenuItem";
+            ukrainianMenuItem.Click += ukrainianMenuItem_Click;
+            // 
+            // toolStripDropDownButton1
+            // 
+            resources.ApplyResources(toolStripDropDownButton1, "toolStripDropDownButton1");
+            toolStripDropDownButton1.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            toolStripDropDownButton1.DropDownItems.AddRange(new ToolStripItem[] { toolStripTextBox1 });
+            toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            // 
+            // toolStripTextBox1
+            // 
+            resources.ApplyResources(toolStripTextBox1, "toolStripTextBox1");
+            toolStripTextBox1.Name = "toolStripTextBox1";
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick_1;
+            // 
+            // contextMenu
+            // 
+            resources.ApplyResources(contextMenu, "contextMenu");
+            contextMenu.ImageScalingSize = new Size(24, 24);
+            contextMenu.Items.AddRange(new ToolStripItem[] { restoreMenuItem, exitMenuItem });
+            contextMenu.Name = "contextMenu";
+            contextMenu.ShowCheckMargin = true;
+            // 
+            // restoreMenuItem
+            // 
+            resources.ApplyResources(restoreMenuItem, "restoreMenuItem");
+            restoreMenuItem.Name = "restoreMenuItem";
+            restoreMenuItem.Click += restoreMenuItem_Click;
+            // 
+            // exitMenuItem
+            // 
+            resources.ApplyResources(exitMenuItem, "exitMenuItem");
+            exitMenuItem.Name = "exitMenuItem";
+            exitMenuItem.Click += exitMenuItem_Click;
+            // 
+            // notifyIcon
+            // 
+            resources.ApplyResources(notifyIcon, "notifyIcon");
+            notifyIcon.ContextMenuStrip = contextMenu;
             // 
             // BestOilForm
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            resources.ApplyResources(this, "$this");
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Info;
-            BackgroundImageLayout = ImageLayout.None;
-            ClientSize = new Size(774, 699);
+            Controls.Add(statusStrip);
             Controls.Add(groupBoxTotalPriceBestOil);
             Controls.Add(groupBoxCaffe);
             Controls.Add(groupBoxGasStation);
-            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "BestOilForm";
-            Text = "BestOil";
             groupBoxGasStation.ResumeLayout(false);
             groupBoxGasStation.PerformLayout();
             groupBoxTotalPrice.ResumeLayout(false);
@@ -642,7 +548,11 @@
             groupBoxTotalPriceCafe.PerformLayout();
             groupBoxTotalPriceBestOil.ResumeLayout(false);
             groupBoxTotalPriceBestOil.PerformLayout();
+            statusStrip.ResumeLayout(false);
+            statusStrip.PerformLayout();
+            contextMenu.ResumeLayout(false);
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -695,5 +605,17 @@
         private Label labelMoneyTotalPriceBestOil;
         private Label labelTotalPriceBestOil;
         private System.Windows.Forms.Timer timer;
+        private StatusStrip statusStrip;
+        private ToolStripStatusLabel statusLabel;
+        private ToolStripDropDownButton toolStripDropDownButton;
+        private ToolStripMenuItem englishMenuItem;
+        private ToolStripMenuItem ukrainianMenuItem;
+        private System.Windows.Forms.Timer timer1;
+        private ToolStripDropDownButton toolStripDropDownButton1;
+        private ToolStripTextBox toolStripTextBox1;
+        private ContextMenuStrip contextMenu;
+        private ToolStripMenuItem restoreMenuItem;
+        private ToolStripMenuItem exitMenuItem;
+        private NotifyIcon notifyIcon;
     }
 }
